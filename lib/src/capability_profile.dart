@@ -20,7 +20,8 @@ class CapabilityProfile {
 
   /// Public factory
   static Future<CapabilityProfile> load({String name = 'default'}) async {
-    final content = await rootBundle.loadString('assets/capabilities.json');
+    final content = await rootBundle
+        .loadString('packages/escpos/resources/capabilities.json');
     Map capabilities = json.decode(content);
 
     var profile = capabilities['profiles'][name];
@@ -51,7 +52,7 @@ class CapabilityProfile {
 
   static Future<List<dynamic>> getAvailableProfiles() async {
     final content = await rootBundle
-        .loadString('packages/esc_pos_utils/resources/capabilities.json');
+        .loadString('packages/escpos/resources/capabilities.json');
     Map capabilities = json.decode(content);
 
     var profiles = capabilities['profiles'];
