@@ -1,6 +1,8 @@
-# esc_pos_printer
+# ESC/POS dart library
 
-[![Pub Version](https://img.shields.io/pub/v/esc_pos_printer)](https://pub.dev/packages/esc_pos_printer)
+[![Pub Version](https://img.shields.io/pub/v/escpos)](https://pub.dev/packages/escpos)
+
+Hard forked from https://github.com/andrey-ushakov/esc_pos_printer.
 
 The library allows to print receipts using an ESC/POS thermal WiFi/Ethernet printer. For Bluetooth printers, use [esc_pos_bluetooth](https://github.com/andrey-ushakov/esc_pos_bluetooth) library.
 
@@ -86,3 +88,7 @@ For a complete example, check `example/example.dart` and `example/discover_print
 <img src="https://github.com/andrey-ushakov/esc_pos_printer/blob/master/example/receipt2.jpg?raw=true" alt="test receipt" height="800"/>
 
 <img src="https://github.com/andrey-ushakov/esc_pos_printer/blob/master/example/receipt.jpg?raw=true" alt="test receipt" height="500"/>
+
+# License
+
+Copyright (c) 2019 Andrey Ushakov. All rights reserved.

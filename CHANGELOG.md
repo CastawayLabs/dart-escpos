@@ -1,3 +1,9 @@
+## [5.0.0]
+
+- Merge esc_pos_utils into this package
+- Add setModeReadOnline which queries if printer is available
+- Rename to escpos
+
 ## [4.0.3]
 
 - Added optional delay param to `disconnect` method
