@@ -7,7 +7,6 @@
  */
 
 import 'dart:convert';
-
 import 'commands.dart';
 
 class QRSize {

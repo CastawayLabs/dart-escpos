@@ -1,3 +1,6 @@
+## [5.0.2]
+
+- Add NetworkPrinterManager
 ## [5.0.0]
 
 - Merge esc_pos_utils into this package
