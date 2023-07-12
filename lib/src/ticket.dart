@@ -574,7 +574,7 @@ class Ticket {
   /// Print an image using (ESC *) command
   ///
   /// [image] is an instanse of class from [Image library](https://pub.dev/packages/image)
-  void image(Image imgSrc, {PosAlign align = PosAlign.center}) {
+  void image(Image imgSrc, {PosAlign align = PosAlign.center, bool removeEmptyLine = true}) {
     // Image alignment
     setStyles(PosStyles().copyWith(align: align));
 
@@ -587,7 +587,8 @@ class Ticket {
     final Image imageRotated = copyRotate(image, 270);
 
     const int lineHeight = highDensityVertical ? 3 : 1;
-    final List<List<int>> blobs = _toColumnFormat(imageRotated, lineHeight * 8);
+
+    final List<List<int>> blobs = _toColumnFormat(imageRotated, lineHeight * 8, removeEmptyLine: removeEmptyLine);
 
     // Compress according to line density
     // Line height contains 8 or 24 pixels of src image
@@ -618,7 +619,7 @@ class Ticket {
   ///
   /// [image] Image to extract from
   /// [lineHeight] Printed line height in dots
-  List<List<int>> _toColumnFormat(Image imgSrc, int lineHeight) {
+  List<List<int>> _toColumnFormat(Image imgSrc, int lineHeight, {bool removeEmptyLine = true}) {
     final Image image = Image.from(imgSrc); // make a copy
 
     // Determine new width: closest integer that is divisible by lineHeight
@@ -641,7 +642,19 @@ class Ticket {
       left += lineHeight;
     }
 
+    if(removeEmptyLine){
+      List<List<int>> _result = [];
+
+      for (int i = 0; i <= (blobs.length - 1); i++) {
+        var result = blobs[i].fold<int>(0, (p, e) => p.toInt() + e.toInt());
+        if (result != 0) _result.add(blobs[i].toList());
+      }
+
+      return _result;
+    }
+
     return blobs;
+
   }
 
   /// Image rasterization
