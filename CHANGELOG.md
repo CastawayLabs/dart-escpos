@@ -1,3 +1,7 @@
+## [6.0.0-test]
+
+- Upgrade dependencies
+
 ## [5.0.2]
 
 - Add NetworkPrinterManager

@@ -1,15 +1,15 @@
 name: escpos
 description: Dart library for ESC/POS with networking capability
-version: 5.0.2
+version: 6.0.1-test
 homepage: https://github.com/CastawayLabs/dart-escpos
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=3.0.0-0 <4.0.0"
 dependencies:
   flutter:
     sdk: flutter
   gbk_codec_nohtml: 1.0.0
-  image: 3.0.2
-  hex: 0.2.0
+  image:
+  hex:
 dev_dependencies:
   flutter_lints:
   flutter_test:

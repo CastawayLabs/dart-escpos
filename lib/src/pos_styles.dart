@@ -19,20 +19,20 @@ class PosStyles {
     this.height = PosTextSize.size1,
     this.width = PosTextSize.size1,
     this.fontType,
-    this.codeTable = "CP437",
+    this.codeTable = 'CP437',
   });
 
   // Init all fields with default values
   const PosStyles.defaults({
-    this.bold: false,
-    this.reverse: false,
-    this.underline: false,
-    this.turn90: false,
-    this.align: PosAlign.left,
-    this.height: PosTextSize.size1,
-    this.width: PosTextSize.size1,
-    this.fontType: PosFontType.fontA,
-    this.codeTable: "CP437",
+    this.bold = false,
+    this.reverse = false,
+    this.underline = false,
+    this.turn90 = false,
+    this.align = PosAlign.left,
+    this.height = PosTextSize.size1,
+    this.width = PosTextSize.size1,
+    this.fontType = PosFontType.fontA,
+    this.codeTable = 'CP437',
   });
 
   final bool bold;
