@@ -58,16 +58,16 @@ class PrinterNetworkManager {
     _timeout = timeout;
   }
 
-  Future<PosPrintResult> printTicket(Ticket ticket) {
+  Future<PosPrintResult> printTicket(List<int> data) {
     if (_host.isEmpty) {
       return Future<PosPrintResult>.value(PosPrintResult.printerNotSelected);
-    } else if (ticket.bytes.isEmpty) {
+    } else if (data.isEmpty) {
       return Future<PosPrintResult>.value(PosPrintResult.ticketEmpty);
     }
 
     return Socket.connect(_host, _port, timeout: _timeout)
         .then((Socket socket) {
-      socket.add(ticket.bytes);
+      socket.add(data);
       socket.destroy();
       return Future<PosPrintResult>.value(PosPrintResult.success);
     }).catchError((dynamic e) {
