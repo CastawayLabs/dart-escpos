@@ -8,7 +8,7 @@ dependencies:
   flutter:
     sdk: flutter
   gbk_codec_nohtml: 1.0.0
-  image: 3.0.2
+  image: 4.0.16
   hex: 0.2.0
 dev_dependencies:
   flutter_lints:
