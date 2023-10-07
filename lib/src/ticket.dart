@@ -635,21 +635,19 @@ class Ticket {
     int left = 0;
     final List<List<int>> blobs = [];
 
-    while (left < widthPx) {
+    int count = 0;
 
-      // /// change 6/10/2023
+    while (left < widthPx) {
       final Image slice = copyCrop(biggerImage, x: left, y: 0, width: lineHeight, height: heightPx);
       if (slice.numChannels > 2) grayscale(slice);
       final imgBinary = (slice.numChannels > 1) ? slice.convert(numChannels: 1) : slice;
       final bytes = imgBinary.getBytes();
       blobs.add(bytes);
       left += lineHeight;
-
-      // final Image slice = copyCrop(biggerImage, x: left, y: 0, width: lineHeight, height: heightPx);
-      // final Uint8List bytes = slice.getBytes(order: ChannelOrder.rgba);
-      // blobs.add(bytes);
-      // left += lineHeight;
+      count ++;
     }
+
+    print(count);
 
     if(removeEmptyLine){
       List<List<int>> _result = [];
