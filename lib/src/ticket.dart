@@ -583,7 +583,7 @@ class Ticket {
     const bool highDensityVertical = true;
 
     invert(image);
-    // flip(image, Flip.horizontal);
+    flip(image, direction: FlipDirection.horizontal);
     final Image imageRotated = copyRotate(image, angle: 270);
 
     const int lineHeight = highDensityVertical ? 3 : 1;
@@ -638,17 +638,17 @@ class Ticket {
     while (left < widthPx) {
 
       // /// change 6/10/2023
-      // final Image slice = copyCrop(biggerImage, x: left, y: 0, width: lineHeight, height: heightPx);
-      // if (slice.numChannels > 2) grayscale(slice);
-      // final imgBinary = (slice.numChannels > 1) ? slice.convert(numChannels: 1) : slice;
-      // final bytes = imgBinary.getBytes();
-      // blobs.add(bytes);
-      // left += lineHeight;
-
       final Image slice = copyCrop(biggerImage, x: left, y: 0, width: lineHeight, height: heightPx);
-      final Uint8List bytes = slice.getBytes(order: ChannelOrder.rgba);
+      if (slice.numChannels > 2) grayscale(slice);
+      final imgBinary = (slice.numChannels > 1) ? slice.convert(numChannels: 1) : slice;
+      final bytes = imgBinary.getBytes();
       blobs.add(bytes);
       left += lineHeight;
+
+      // final Image slice = copyCrop(biggerImage, x: left, y: 0, width: lineHeight, height: heightPx);
+      // final Uint8List bytes = slice.getBytes(order: ChannelOrder.rgba);
+      // blobs.add(bytes);
+      // left += lineHeight;
     }
 
     if(removeEmptyLine){
